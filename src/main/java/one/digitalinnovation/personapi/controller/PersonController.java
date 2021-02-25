@@ -1,5 +1,6 @@
 package one.digitalinnovation.personapi.controller;
 
+import lombok.AllArgsConstructor;
 import one.digitalinnovation.personapi.dto.request.PersonDTO;
 import one.digitalinnovation.personapi.dto.response.MessageResponseDTO;
 
@@ -15,14 +16,16 @@ import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/api/v1/people")
+@AllArgsConstructor(onConstructor = @__(@Autowired))
 public class PersonController {
 
     private PersonService personService;
 
-    @Autowired
-    public  PersonController(PersonService personService){
-        this.personService = personService;
-    }
+    //Retirado após add do @AllArgsConstructor
+    //@Autowired
+    //public  PersonController(PersonService personService){
+    //    this.personService = personService;
+    //}
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
